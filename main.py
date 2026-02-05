@@ -14,18 +14,27 @@ posts: list[dict] = [
         "date_posted": "April 20, 2025",
     },
 {
-        "id": 1,
+        "id": 2,
         "author": "Jone Doe.",
-        "title": "Python is great for web development.",
+        "title": "Python for Web.",
         "content": "Python is a great language for web development.",
         "date_posted": "April 21, 2025",
+    },
+
+{
+        "id": 3,
+        "author": "Elvis Chege.",
+        "title": "Jinja2 Templating Engine.",
+        "content": "The Jinja2 templating engine is great for frontend.",
+        "date_posted": "February 04, 2026",
     },
 ]
 
 @app.get("/", include_in_schema=False)
 @app.get("/posts", include_in_schema=False)
 def home(request: Request):
-    return templates.TemplateResponse(request, "home.html", {"posts":posts})
+    return templates.TemplateResponse(request, "home.html", {"posts":posts,
+                                                             "title": "Home"})
 
 @app.get("/api/posts")
 def get_posts():
