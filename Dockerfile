@@ -1,15 +1,25 @@
-FROM python:3.12-slim
+FROM python:3.12-slim AS builder
 
 # Install uv.
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
-# Copy the application into the container.
-COPY . /app
-
-# Install the application dependencies.
+# Set project working directory
 WORKDIR /app
 
+# Copy deps and packages files
+COPY pyproject.toml uv.lock /app/
+
+# Install Packages and deps.
 RUN uv sync --frozen --no-cache
+
+# Copy the application into the container.
+COPY . .
+
+# Create a non-root user.
+RUN groupadd -r appuser && useradd -r -g appuser appuser
+
+USER appuser
+
 
 # Run the application.
 CMD ["/app/.venv/bin/uvicorn", "main:app", "--port", "8000", "--host","0.0.0.0"]
