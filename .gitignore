@@ -13,3 +13,6 @@ learn.py
 # others
 .idea
 .idea/*
+
+# database files
+blog.db
