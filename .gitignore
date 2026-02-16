@@ -9,7 +9,7 @@ learn.py
 
 # Virtual environments
 .venv
-
+media/.DS_Store
 # others
 .idea
 .idea/*
