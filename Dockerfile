@@ -1,4 +1,4 @@
-FROM python:3.12-slim AS builder
+FROM python:3.12-slim
 
 # Install uv.
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
@@ -17,6 +17,8 @@ COPY . .
 
 # Create a non-root user.
 RUN groupadd -r appuser && useradd -r -g appuser appuser
+
+RUN chown -R appuser:appuser /app
 
 USER appuser
 
