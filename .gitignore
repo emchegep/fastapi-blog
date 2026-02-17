@@ -12,6 +12,7 @@ learn.py
 media/.DS_Store
 # others
 .idea
+.idea/**
 .idea/*
 
 # database files
