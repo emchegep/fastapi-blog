@@ -12,8 +12,24 @@ learn.py
 media/.DS_Store
 # others
 .idea
-.idea/**
+.idea/fastapi_blog.iml
 .idea/*
 
-# database files
-blog.db
+### database files ###
+*.sqlite
+*.db
+
+### dotenv ###
+.env
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
