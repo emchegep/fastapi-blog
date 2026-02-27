@@ -22,6 +22,6 @@ RUN chown -R appuser:appuser /app
 
 USER appuser
 
-
+ENTRYPOINT ["/app/.venv/bin/uvicorn"]
 # Run the application.
-CMD ["/app/.venv/bin/uvicorn", "main:app", "--port", "8000", "--host","0.0.0.0"]
+CMD ["main:app", "--port", "8000", "--host","0.0.0.0"]

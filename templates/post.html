@@ -18,8 +18,9 @@
         <h2 class="article-title">{{ post.title }}</h2>
         <p class="article-content">{{ post.content }}</p>
         <!-- Only show edit/delete options if the user is the author -->
-        <!-- Only show edit/delete options if user_id is 1 (TEMPORARY - until authentication) -->
-        {% if post.user_id == 2 %}
+        <!-- Only show edit/delete options if user_id is 2 (TEMPORARY - until
+         authentication) -->
+        {% if post.user_id == 3 %}
             <div class="post-actions mt-3 pt-3 border-top">
             <button type="button"
                     class="btn btn-outline-secondary me-1"

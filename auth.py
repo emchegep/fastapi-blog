@@ -6,8 +6,13 @@ from pwdlib import PasswordHash
 
 from config import settings
 
-password_hash = PasswordHash.recommended()
+password_hash = PasswordHash.recommended() # create password harsher using
+                                           # argon2 with recommended settings
 
+# Extracts token from authorization header. The token URL has to match our
+# login endpoint path.
+# This enables the authorize button in our docs which makes testing
+# authentication alot easier.
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/users/token")
 
 def hash_password(password: str) -> str:
